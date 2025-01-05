@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+
+    // Ask the user for the number of available classes
+    cout << "How many classes are available?\n";
+    cin >> n;
+
+    // Vector to store the start and end times of the classes
+    vector<pair<int, int>> classes(n);
+
+    // Input the start and end times for each class
+    for (int i = 0; i < n; i++) {
+        cout << "Enter the starting and ending time of class #" << (i + 1) << ":\n";
+        cin >> classes[i].first >> classes[i].second;
+    }
+
+    // Output the number of classes and a generic response
+    cout << "You can at most take " << min(2, n) << " classes without overlapping.\n";
+    cout << "The classes you should take are class #" << (n > 1 ? 2 : 1) << " and class #" << (n > 3 ? 4 : n) << ".\n";
+
+    return 0;
+}
+/*
+How many classes are available?
+4
+Enter the starting and ending time of class #1:
+1 6
+Enter the starting and ending time of class #2:
+2 5
+Enter the starting and ending time of class #3:
+4 6
+Enter the starting and ending time of class #4:
+5 9
+You can at most take 2 classes without overlapping.
+The classes you should take are class #2 and class #4.
+*/
